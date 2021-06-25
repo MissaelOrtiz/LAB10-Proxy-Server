@@ -23,5 +23,34 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('returns weather data.', async() => {
+
+      const expectation = [
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) }
+      ];
+
+      const data = await fakeRequest(app)
+        .get('/weather?latitude=39.52963&longitude=-119.8138')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
   });
 });
