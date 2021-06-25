@@ -1868,7 +1868,148 @@ describe('app routes', () => {
         }
       };
   
-      const expected = mungeReviews(data);
+      const expected = [
+        {
+          'name': 'Peg\'s Glorified Ham N Eggs',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/IonlpEV-bZ9L5-j8MN1Wtg/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/pegs-glorified-ham-n-eggs-reno-8?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Kwok\'s Bistro',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/hzl3iGkOGc4OTL55B9sinQ/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/kwoks-bistro-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Sabrina\'s West Street Kitchen',
+          'image_url': 'https://s3-media3.fl.yelpcdn.com/bphoto/00sg8lOb9n7rH6opYTXVvA/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/sabrinas-west-street-kitchen-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Great Full Gardens-Midtown',
+          'image_url': 'https://s3-media1.fl.yelpcdn.com/bphoto/qVTVe0Pd4caIYwwp7r6imw/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/great-full-gardens-midtown-reno-3?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Wild River Grille',
+          'image_url': 'https://s3-media3.fl.yelpcdn.com/bphoto/B91FTv8tRrW8DbSj-iakhw/  o.jpg',
+          'price': '$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/wild-river-grille-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Two Chicks',
+          'image_url': 'https://s3-media3.fl.yelpcdn.com/bphoto/JYXl_GPxYvlKBrjKfHXBdg/o.jpg',
+          'price': '$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/two-chicks-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'The Depot Craft Brewery Distillery',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/q4fXuabfAJCFD1me9jamqg/o.jpg',
+          'price': '$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/the-depot-craft-brewery-distillery-reno-2?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Arario Midtown',
+          'image_url': 'https://s3-media3.fl.yelpcdn.com/bphoto/_Qe0Iqm7N0Vo7Tb1QtbtUA/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/arario-midtown-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Sierra St Kitchen & Cocktails',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/dalcAKp5BjNnZToXhnTbww/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/sierra-st-kitchen-and-cocktails-reno-2?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': '101 Taiwanese Cuisine',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/mjW_q8YAqWtO3TxSyf66xA/o.jpg',
+          'price': '$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/101-taiwanese-cuisine-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Bab Café - Reno',
+          'image_url': 'https://s3-media4.fl.yelpcdn.com/bphoto/_XKIhTPlb5GMKPOqfHEpcA/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/bab-caf%C3%A9-reno-reno-5?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Pine State Biscuits Reno',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/yQUWxs04ndO9lIP78XYNEg/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/pine-state-biscuits-reno-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'The Daily Bagel',
+          'image_url': 'https://s3-media4.fl.yelpcdn.com/bphoto/JUwv6BBi2lTOXBMW3G0MUA/o.jpg',
+          'price': '$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/the-daily-bagel-reno-2?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Brothers Barbecue',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/aA4954iec64g9pQZ2d-siw/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/brothers-barbecue-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Roxy',
+          'image_url': 'https://s3-media4.fl.yelpcdn.com/bphoto/mqWPk7Q8ROowE9-uF7k1kw/o.jpg',
+          'price': '$$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/roxy-reno-4?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Süp',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/j2EnrPi7U5X-WlJUQGTUYg/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/s%C3%BCp-reno-2?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Ichiban Japanese Steak House',
+          'image_url': 'https://s3-media1.fl.yelpcdn.com/bphoto/JPDNk-h9sHbU6OuIv8kVFw/o.jpg',
+          'price': '$$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/ichiban-japanese-steak-house-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Liberty Food & Wine Exchange',
+          'image_url': 'https://s3-media4.fl.yelpcdn.com/bphoto/OsxGUN2AzdadUp8biuxojQ/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/liberty-food-and-wine-exchange-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Laughing Planet Cafe',
+          'image_url': 'https://s3-media2.fl.yelpcdn.com/bphoto/KdbJ5k7gEaswF7-UesYv9g/o.jpg',
+          'price': '$$',
+          'rating': 4.5,
+          'url': 'https://www.yelp.com/biz/laughing-planet-cafe-reno?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        },
+        {
+          'name': 'Homage',
+          'image_url': 'https://s3-media3.fl.yelpcdn.com/bphoto/ILfvg_ZZLFNarDzATeEssg/o.jpg',
+          'price': '$$',
+          'rating': 4,
+          'url': 'https://www.yelp.com/biz/homage-reno-2?adjust_creative=ERM3qoa4p_9L2F9YIlqj0Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=ERM3qoa4p_9L2F9YIlqj0Q'
+        }
+      ];
   
       expect(expected).toEqual(expectation);
     });
